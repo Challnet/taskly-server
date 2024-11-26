@@ -17,7 +17,7 @@ app.use(cookieParser());
 app.use(fileUpload());
 
 app.use(cors({
-    origin: 'https://taskly-client-h53ic8lwa-alexandrs-projects-79945c01.vercel.app/://your-vercel-app.vercel.app',
+    origin: ['https://taskly-client-zeta.vercel.app', 'http://localhost:3000'],
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization'],
 }));
