@@ -16,11 +16,25 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(fileUpload());
 
-app.use(cors({
-    origin: '*',
+const corsOptions = {
+    origin: process.env.CLIENT_URL,
     credentials: true,
-})
-);
+};
+
+app.use(cors(corsOptions));
+
+app.options('*', cors(corsOptions));
+
+// app.options('*', cors({
+//     origin: process.env.CLIENT_URL,
+//     credentials: true,
+// }));
+
+// app.use(cors({
+//     origin: process.env.CLIENT_URL,
+//     credentials: true,
+// })
+// );
 
 app.use('/api/v1/users', userRouter);
 app.use('/api/v1/auth', authRouter);
