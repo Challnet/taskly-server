@@ -16,6 +16,11 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(fileUpload());
 
+app.use((req, res, next) => {
+    console.log('Request Origin:', req.headers.origin); // Логирует источник запроса
+    next();
+});
+
 app.use(cors({
     origin: process.env.CLIENT_URL,
     credentials: true,
