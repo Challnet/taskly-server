@@ -17,7 +17,7 @@ app.use(cookieParser());
 app.use(fileUpload());
 
 const corsOptions = {
-    origin: process.env.CLIENT_URL,
+    origin: 'https://taskly-client-zeta.vercel.app',
     credentials: true,
 };
 
