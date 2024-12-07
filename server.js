@@ -14,20 +14,10 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 app.use(cookieParser());
-
-app.use((req, res, next) => {
-    res.cookie('cookieName', 'cookieValue', {
-        httpOnly: true,
-        secure: true,
-        sameSite: 'None',
-    });
-    next();
-});
-
 app.use(fileUpload());
 
 app.use(cors({
-    origin: process.env.CLIENT_URL,
+    origin: '*',
     credentials: true,
 })
 );
